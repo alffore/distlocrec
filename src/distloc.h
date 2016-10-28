@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+
+#ifndef __DISTLOC_H__
+#define __DISTLOC_H__
+
+
+struct Localidad{
+  int est;
+  int mun;
+  int loc;
+
+  int cconapo;
+  double lat;
+  double lng;
+
+
+  double x;
+  double y;
+  double z;
+
+  int pob;
+
+  double dist[23];
+  int c[23];
+};
+
+typedef struct Localidad sLocalidad;
+typedef struct Localidad* PLocalidad;
+
+
+struct Recurso{
+  int cconapo;
+  double lat;
+  double lng;
+
+  double x;
+  double y;
+  double z;
+
+  char * stipo;
+  int tipo;
+};
+
+typedef struct Recurso sRecurso;
+typedef struct Recurso* PRecurso;
+
+
+#endif
