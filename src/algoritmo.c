@@ -3,7 +3,7 @@
 extern void calculoP(int);
 double distLocRec(PLocalidad , PRecurso );
 int distVecLocRec(PLocalidad , PRecurso );
-void escanning(void);
+void escanning(int);
 
 
 extern PLocalidad ploc;
@@ -15,7 +15,9 @@ extern int cantirec;
 extern const int NumHilos;
 extern const double RT;
 
-
+/**
+*
+*/
 void calculoP(int pos){
   int j;
   int i;
@@ -23,9 +25,14 @@ void calculoP(int pos){
   double daux;
   int iaux;
 
+  escanning(pos);
+
+
   for(j=pos;j<cantiloc;j+=NumHilos){
 
     for(i=0;i<cantirec;i++){
+
+
 
       daux=distLocRec(ploc+j,prec+i);
 
@@ -57,11 +64,11 @@ double distLocRec(PLocalidad p, PRecurso r){
 /**
 *
 */
-void escanning(void){
-  int i,j;
+void escanning(int pos){
+int i,j;
 int dist;
 
-  for(j=0;j<cantiloc;j++){
+  for(j=pos;j<cantiloc;j+=NumHilos){
     for(i=0;i<cantirec;i++){
       dist=distVecLocRec(ploc+j,prec+i);
       if(dist==1){

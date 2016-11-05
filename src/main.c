@@ -9,6 +9,7 @@ PRecurso prec;
 int cantiloc;
 int cantirec;
 
+extern int indexIP[23];
 
 
 
@@ -27,9 +28,10 @@ prec=(PRecurso) malloc(sizeof(sRecurso)*cantirec);
 if(prec!=NULL && ploc!=NULL){
 
   cargaArchivoLocs(archlocs);
+  cargaArchivoRecs(archrecs);
 
-  for(i=0;i<10;i++){
-    printf("x: %.10lf\n",(ploc+i)->x);
+  for(i=0;i<23;i++){
+    printf("x: %d %d\n",i,indexIP[i]);
   }
 
 }

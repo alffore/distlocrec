@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <string.h>
 
 
 #ifndef __DISTLOC_H__
@@ -32,6 +33,10 @@ typedef struct Localidad* PLocalidad;
 
 
 struct Recurso{
+  int est;
+  int mun;
+  int loc;
+
   int cconapo;
   double lat;
   double lng;
@@ -40,8 +45,10 @@ struct Recurso{
   double y;
   double z;
 
-  char * stipo;
+  char stipo[18];
   int tipo;
+
+  int id;
 };
 
 typedef struct Recurso sRecurso;
