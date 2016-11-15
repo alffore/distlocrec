@@ -18,6 +18,9 @@ int main(void){
 	/* Allocate array of child PIDs: error handling omitted for brevity */
 	childPids = (pid_t*) malloc(numberOfChildren * sizeof(pid_t));
 
+	printf("Proceso padre: %d\n",getpid());
+
+
 	/* Start up children */
 	for (int ii = 0; ii < numberOfChildren; ++ii) {
 	   if ((p = fork()) == 0) {
@@ -39,7 +42,7 @@ int main(void){
 	       if (childPids[ii] > 0) {
 	          if (waitpid(childPids[ii], NULL, WNOHANG) != 0) {
 	             /* Child is done */
-			printf("hijo termino: %d %d\n",ii, childPids[ii]);
+							 printf("hijo termino: %d %d\n",ii, childPids[ii]);
 
 	             childPids[ii] = 0;
 	          }

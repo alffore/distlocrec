@@ -15,6 +15,7 @@ extern int cantirec;
 extern const int NumHilos;
 extern const double RT;
 
+extern int indexIP[23];
 /**
 *
 */
@@ -23,16 +24,20 @@ void calculoP(int pos){
   int i;
 
   double daux;
-  int iaux;
 
-  escanning(pos);
 
+/*  escanning(pos);
+
+return ;*/
 
   for(j=pos;j<cantiloc;j+=NumHilos){
 
     for(i=0;i<cantirec;i++){
 
-
+/*      if((ploc+j)->dist[(prec+i)->tipo]==0 && (ploc+j)->c[(prec+i)->tipo]>1000000){
+        i=indexIP[(prec+i)->tipo]+1;
+        if(i>=cantirec)break;
+      }*/
 
       daux=distLocRec(ploc+j,prec+i);
 
@@ -53,9 +58,9 @@ void calculoP(int pos){
 
 
 double distLocRec(PLocalidad p, PRecurso r){
-  double d=p->x*r->x;
-  d+=p->y*r->y;
-  d+=p->z * r->z;
+  double d=(p->x*r->x);
+  d+=(p->y*r->y);
+  d+=(p->z * r->z);
 
   return acos(d);
 
@@ -65,12 +70,14 @@ double distLocRec(PLocalidad p, PRecurso r){
 *
 */
 void escanning(int pos){
-int i,j;
-int dist;
+  int i,j;
+  int dist;
 
   for(j=pos;j<cantiloc;j+=NumHilos){
     for(i=0;i<cantirec;i++){
       dist=distVecLocRec(ploc+j,prec+i);
+printf("%d %d %d::: %d %d\n",getpid(),pos,dist,(ploc+j)->cconapo,(prec+i)->cconapo);
+
       if(dist==1){
         (ploc+j)->dist[(prec+i)->tipo]=0;
         (ploc+j)->c[(prec+i)->tipo]=(prec+i)->cconapo;
@@ -82,7 +89,7 @@ int dist;
 
 int distVecLocRec(PLocalidad p, PRecurso r){
 
-  if( p->lat - r->lat==0 &&  p->lng - r->lng ==0){
+  if( (p->lat - r->lat)==0 &&  (p->lng - r->lng) ==0){
     return 1;
   }
 

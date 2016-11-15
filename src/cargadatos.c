@@ -34,7 +34,8 @@ void cargaArchivoLocs(char * archlocs){
 
   PLocalidad p;
 
-int i=0;
+int j=0;
+  int i=0;
   while(fscanf(fh,"%d %d %d %lf %lf %d",&est,&mun,&loc,&lat,&lng,&pob)!=EOF){
 
 
@@ -58,13 +59,18 @@ int i=0;
 
     p->pob=pob;
 
+    for(j=0;j<23;j++){
+      p->dist[j]=M_PI;
+    }
+
     i++;
   }
 
+printf("Localidades : %d\n",i);
 
   fclose(fh);
 
-free(res2);
+  free(res2);
 
 }
 
@@ -117,13 +123,16 @@ void cargaArchivoRecs(char * archrecs){
     p->id=id;
 
     if(tipo!=tipo_temp){
-
       indexIP[tipo_temp]=i-1;
       tipo_temp=tipo;
     }
 
     i++;
   }
+
+  indexIP[tipo_temp]=i-1;
+
+  printf("Recursos : %d\n",i);
   free(res2);
 }
 
@@ -138,7 +147,7 @@ double deg2rad(double x){
 
 
 void cesfe2carte(double lat, double lng, double *res){
-    *(res)=cos(lng)*sin(lat);
-    *(res+1)=sin(lng)*sin(lat);
-    *(res+2)=cos(lat);
+    *(res)=sin(lng)*cos(lat);
+  *(res+1)=cos(lng)*cos(lat);
+  *(res+2)=sin(lat);
 }
