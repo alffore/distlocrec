@@ -5,7 +5,7 @@ extern PRecurso prec;
 extern void cargaArchivoLocs(char *);
 extern void cargaArchivoRecs(char *);
 
-int indexIP[23];
+
 
 
 int eml2conapo(int, int, int);
@@ -75,7 +75,7 @@ printf("Localidades : %d\n",i);
 }
 
 /**
-*
+* Función que se encarga de cargar los recursos en la localidades
 */
 void cargaArchivoRecs(char * archrecs){
   int est;
@@ -95,7 +95,7 @@ void cargaArchivoRecs(char * archrecs){
 
   PRecurso p;
 
-  int tipo_temp=0;
+
 
   int i=0;
   while(fscanf(fh,"%d %d %d %lf %lf %s %d %d",&est,&mun,&loc,&lat,&lng,stipo,&tipo,&id)!=EOF){
@@ -122,30 +122,34 @@ void cargaArchivoRecs(char * archrecs){
     p->tipo=tipo;
     p->id=id;
 
-    if(tipo!=tipo_temp){
-      indexIP[tipo_temp]=i-1;
-      tipo_temp=tipo;
-    }
+
 
     i++;
   }
 
-  indexIP[tipo_temp]=i-1;
+
 
   printf("Recursos : %d\n",i);
   free(res2);
 }
 
-
+/**
+* Función que convierte las claves de Estado, Municipio y Localidad a la clave Conapo
+*/
 int eml2conapo(int e, int m, int l){
   return (e*1000+m)*1000+l;
 }
 
+/**
+* Función que convierte los DEG a RAD
+*/
 double deg2rad(double x){
   return M_PI*x/180.00;
 }
 
-
+/**
+* Función convierte coordenadas geográficas a coordenadas cartesianas
+*/
 void cesfe2carte(double lat, double lng, double *res){
     *(res)=sin(lng)*cos(lat);
   *(res+1)=cos(lng)*cos(lat);

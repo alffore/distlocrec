@@ -6,6 +6,10 @@ extern const double RT;
 extern PLocalidad ploc;
 extern int cantiloc;
 
+
+/**
+* Función que escribe la salida de todas las localidades con sus casos
+*/
 void escribeSalida(void){
 
   FILE * fh;

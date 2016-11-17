@@ -47,9 +47,7 @@ if(prec!=NULL && ploc!=NULL){
   cargaArchivoLocs(archlocs);
   cargaArchivoRecs(archrecs);
 
-  /*for(i=0;i<23;i++){
-    printf("x: %d %d\n",i,indexIP[i]);
-  }*/
+
 
   for (pos = 0; pos < NumHilos; ++pos) {
 	   if ((p = fork()) == 0) {

@@ -12,7 +12,7 @@
 #ifndef __DISTLOC_H__
 #define __DISTLOC_H__
 
-
+//Definicion de la estructura de Localidad
 struct Localidad{
   int est;
   int mun;
@@ -22,14 +22,17 @@ struct Localidad{
   double lat;
   double lng;
 
-
+ //coordenas cartesianas
   double x;
   double y;
   double z;
 
   int pob;
 
+  //distancias mínimas a recursos
   double dist[23];
+
+  //claves conapo a las localidades de los recursos
   int c[23];
 };
 
