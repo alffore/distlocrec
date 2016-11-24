@@ -63,4 +63,12 @@ typedef struct Recurso sRecurso;
 typedef struct Recurso* PRecurso;
 
 
+struct Diccionario{
+  char nombre[22];
+};
+
+typedef struct Diccionario sDiccionario;
+typedef struct Diccionario* PDiccionario;
+
+
 #endif

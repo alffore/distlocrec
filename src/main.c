@@ -12,6 +12,7 @@ const int NumHilos=8;
 
 PLocalidad ploc;
 PRecurso prec;
+PDiccionario pdic;
 
 int cantiloc;
 int cantirec;
@@ -37,6 +38,11 @@ cantirec=atoi(*(args+2));
 char * archlocs=*(args+3);
 char * archrecs=*(args+4);
 
+pdic = (PDiccionario)malloc(sizeof(sDiccionario)*23);
+
+for(ii=0;ii<23;ii++){
+  (pdic+ii)->nombre[0]='\0';
+}
 
 
 ploc=(PLocalidad) mmap(NULL, sizeof(sLocalidad)*cantiloc, PROT_READ | PROT_WRITE,MAP_SHARED | MAP_ANONYMOUS, -1, 0);
@@ -95,6 +101,8 @@ escribeSalida();
 
 munmap(prec,sizeof(sRecurso)*cantirec);
 munmap(ploc,sizeof(sLocalidad)*cantiloc);
+
+free(pdic);
 
 if(childPids!=NULL)free(childPids);
   return 0;

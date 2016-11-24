@@ -1,0 +1,28 @@
+#
+# Makefile para construir el proyecto distlocrec.exe
+#
+# AAFR, 22 de noviembre de 2016
+#
+
+CC= gcc -c
+
+CLINKER= gcc -lm -o
+
+FLAGS= -O2 -Wall
+
+OBJ= main.o algoritmo.o cargadatos.o salida.o
+
+DIR_SRC=./src/
+
+
+
+all: clean $(OBJ)
+	$(CLINKER) distlocrec.exe $(OBJ) $(FLAGS)
+
+%.o: $(DIR_SRC)%.c
+	$(CC) $(FLAGS) $<
+
+
+clean:
+	 @rm -rfv *.o
+	 @rm -rfv *.exe

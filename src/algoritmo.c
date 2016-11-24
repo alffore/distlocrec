@@ -15,7 +15,7 @@ extern int cantirec;
 extern const int NumHilos;
 extern const double RT;
 
-extern int indexIP[23];
+//extern int indexIP[23];
 /**
 *
 */

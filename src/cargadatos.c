@@ -2,6 +2,8 @@
 
 extern PLocalidad ploc;
 extern PRecurso prec;
+extern PDiccionario pdic;
+
 extern void cargaArchivoLocs(char *);
 extern void cargaArchivoRecs(char *);
 
@@ -119,6 +121,11 @@ void cargaArchivoRecs(char * archrecs){
     p->z=*(res2+2);
 
     strcpy(p->stipo,stipo);
+
+    if((pdic+tipo)->nombre[0]=='\0'){
+      strcpy((pdic+tipo)->nombre,stipo);
+    }
+
     p->tipo=tipo;
     p->id=id;
 
