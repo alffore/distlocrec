@@ -17,14 +17,18 @@ DIR_SRC=./src/
 DIR_BIN=./bin/
 
 
-all: sclean $(OBJ) 
+all: sclean $(OBJ)
 	$(CLINKER) $(DIR_BIN)distlocrec.exe $(OBJ) $(FLAGS)
+	@rm -rf *.o
+
 
 %.o: $(DIR_SRC)%.c
 	$(CC) $(FLAGS) $<
 
+
 clean:
 	@rm -rfv *.o
+
 
 sclean:
 	@rm -rfv *.o
