@@ -36,7 +36,7 @@ void cargaArchivoLocs(char * archlocs){
 
   PLocalidad p;
 
-int j=0;
+  int j=0;
   int i=0;
   while(fscanf(fh,"%d %d %d %lf %lf %d",&est,&mun,&loc,&lat,&lng,&pob)!=EOF){
 
@@ -68,7 +68,7 @@ int j=0;
     i++;
   }
 
-printf("Localidades : %d\n",i);
+  printf("Localidades : %d\n",i);
 
   fclose(fh);
 
@@ -158,7 +158,7 @@ double deg2rad(double x){
 * Función convierte coordenadas geográficas a coordenadas cartesianas
 */
 void cesfe2carte(double lat, double lng, double *res){
-    *(res)=sin(lng)*cos(lat);
+  *(res)=sin(lng)*cos(lat);
   *(res+1)=cos(lng)*cos(lat);
   *(res+2)=sin(lat);
 }

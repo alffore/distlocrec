@@ -15,7 +15,8 @@ extern int cantirec;
 extern const int NumHilos;
 extern const double RT;
 
-//extern int indexIP[23];
+
+
 /**
 *
 */
@@ -40,7 +41,9 @@ void calculoP(int pos){
   }
 }
 
-
+/**
+*
+*/
 double distLocRec(PLocalidad p, PRecurso r){
   double d=(p->x*r->x);
   d+=(p->y*r->y);

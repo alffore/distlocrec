@@ -14,15 +14,18 @@ OBJ= main.o algoritmo.o cargadatos.o salida.o
 
 DIR_SRC=./src/
 
+DIR_BIN=./bin/
 
 
-all: clean $(OBJ)
-	$(CLINKER) distlocrec.exe $(OBJ) $(FLAGS)
+all: sclean $(OBJ) 
+	$(CLINKER) $(DIR_BIN)distlocrec.exe $(OBJ) $(FLAGS)
 
 %.o: $(DIR_SRC)%.c
 	$(CC) $(FLAGS) $<
 
-
 clean:
-	 @rm -rfv *.o
-	 @rm -rfv *.exe
+	@rm -rfv *.o
+
+sclean:
+	@rm -rfv *.o
+	@rm -rfv $(DIR_BIN)*.exe
