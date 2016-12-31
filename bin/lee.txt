@@ -1,1 +1,10 @@
-Aquí se construye el binario 
+Aquí se construye el binario
+
+
+#version 2016
+
+
+localidades2016.txt 304652
+/var/www/html/renic/utiles/cac2/localidades2016.txt
+
+/var/www/html/renic/utiles/cac7/salida_ipc2.txt 23576

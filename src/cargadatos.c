@@ -19,6 +19,9 @@ void cesfe2carte(double lat, double lng, double *res);
 * Función que carga los datos de localidades
 */
 void cargaArchivoLocs(char * archlocs){
+
+  printf("Carga Localidades\n");
+
   int est;
   int mun;
   int loc;
@@ -80,6 +83,9 @@ void cargaArchivoLocs(char * archlocs){
 * Función que se encarga de cargar los recursos en la localidades
 */
 void cargaArchivoRecs(char * archrecs){
+
+  printf("Carga Recursos\n");
+
   int est;
   int mun;
   int loc;

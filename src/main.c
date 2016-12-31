@@ -41,11 +41,11 @@ int main(int cargs, char **args){
 
   if(cargs<5){
     fprintf(stderr, "No estan completos los parámetros:\n" );
-    fprintf(stderr, "distlocrec.exe CantiLocs CantiRecs ArchivoLoc ArchivoRec\n" );
-    fprintf(stderr, "CantiLocs: Cantidad de localidades\n" );
-    fprintf(stderr, "CantiRecs: Cantidad de recursos\n" );
-    fprintf(stderr, "ArchivoLoc: Archivo de localidades\n");
-    fprintf(stderr, "ArchivoRec: Archivo de recursos\n");
+    fprintf(stderr, "\tdistlocrec.exe CantiLocs CantiRecs ArchivoLoc ArchivoRec\n" );
+    fprintf(stderr, "\t\t CantiLocs: Cantidad de localidades\n" );
+    fprintf(stderr, "\t\t CantiRecs: Cantidad de recursos\n" );
+    fprintf(stderr, "\t\t ArchivoLoc: Archivo de localidades\n");
+    fprintf(stderr, "\t\t ArchivoRec: Archivo de recursos\n");
 
     return 1;
   }
