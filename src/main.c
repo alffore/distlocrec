@@ -31,8 +31,6 @@ int main(int cargs, char **args){
   pid_t *childPids = NULL;
   pid_t p;
 
-  childPids = (pid_t*) malloc(NumHilos * sizeof(pid_t));
-
 
   int pos;
   int stillWaiting;
@@ -41,15 +39,15 @@ int main(int cargs, char **args){
 
   if(cargs<5){
     fprintf(stderr, "No estan completos los parámetros:\n" );
-    fprintf(stderr, "\tdistlocrec.exe CantiLocs CantiRecs ArchivoLoc ArchivoRec\n" );
-    fprintf(stderr, "\t\t CantiLocs: Cantidad de localidades\n" );
-    fprintf(stderr, "\t\t CantiRecs: Cantidad de recursos\n" );
-    fprintf(stderr, "\t\t ArchivoLoc: Archivo de localidades\n");
-    fprintf(stderr, "\t\t ArchivoRec: Archivo de recursos\n");
-
+    fprintf(stderr, "\ndistlocrec.exe CantiLocs CantiRecs ArchivoLoc ArchivoRec\n" );
+    fprintf(stderr, "\t CantiLocs: Cantidad de localidades\n" );
+    fprintf(stderr, "\t CantiRecs: Cantidad de recursos\n" );
+    fprintf(stderr, "\t ArchivoLoc: Archivo de localidades\n");
+    fprintf(stderr, "\t ArchivoRec: Archivo de recursos\n");
     return 1;
   }
 
+  childPids = (pid_t*) malloc(NumHilos * sizeof(pid_t));
 
   cantiloc=atoi(*(args+1));
   cantirec=atoi(*(args+2));
@@ -86,7 +84,6 @@ int main(int cargs, char **args){
     }
 
 
-
     do {
       stillWaiting = 0;
       for (ii = 0; ii < NumHilos; ++ii) {
@@ -112,7 +109,6 @@ int main(int cargs, char **args){
   }
 
   escribeSalida();
-
 
 
   munmap(prec,sizeof(sRecurso)*cantirec);

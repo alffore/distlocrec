@@ -93,7 +93,7 @@ void cargaArchivoRecs(char * archrecs){
   double lat,lng;
   double latr,lngr;
 
-  char stipo[18];
+  char stipo[22];
   int tipo;
   int id;
 
@@ -107,6 +107,7 @@ void cargaArchivoRecs(char * archrecs){
 
   int i=0;
   while(fscanf(fh,"%d %d %d %lf %lf %s %d %d",&est,&mun,&loc,&lat,&lng,stipo,&tipo,&id)!=EOF){
+
 
     latr=deg2rad(lat);
     lngr=deg2rad(lng);
@@ -140,8 +141,6 @@ void cargaArchivoRecs(char * archrecs){
     i++;
   }
 
-
-
   printf("Recursos : %d\n",i);
   free(res2);
 }
@@ -161,7 +160,7 @@ double deg2rad(double x){
 }
 
 /**
-* Función convierte coordenadas geográficas a coordenadas cartesianas
+* Función convierte coordenadas geográficas a coordenadas cartesianas espaciales
 */
 void cesfe2carte(double lat, double lng, double *res){
   *(res)=sin(lng)*cos(lat);

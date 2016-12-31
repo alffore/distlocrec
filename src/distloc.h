@@ -53,7 +53,7 @@ struct Recurso{
   double y;
   double z;
 
-  char stipo[18];
+  char stipo[22];
   int tipo;
 
   int id;
