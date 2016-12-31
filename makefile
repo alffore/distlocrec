@@ -8,7 +8,7 @@ CC= gcc -c
 
 CLINKER= gcc -lm -o
 
-FLAGS= -O2 -Wall
+FLAGS= -O3 -Wall
 
 OBJ= main.o algoritmo.o cargadatos.o salida.o
 

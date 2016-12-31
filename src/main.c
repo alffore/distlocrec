@@ -1,3 +1,6 @@
+/**
+*
+*/
 #include "distloc.h"
 
 
@@ -35,6 +38,19 @@ int main(int cargs, char **args){
   int stillWaiting;
   int ii;
 
+
+  if(cargs<5){
+    fprintf(stderr, "No estan completos los parámetros:\n" );
+    fprintf(stderr, "distlocrec.exe CantiLocs CantiRecs ArchivoLoc ArchivoRec\n" );
+    fprintf(stderr, "CantiLocs: Cantidad de localidades\n" );
+    fprintf(stderr, "CantiRecs: Cantidad de recursos\n" );
+    fprintf(stderr, "ArchivoLoc: Archivo de localidades\n");
+    fprintf(stderr, "ArchivoRec: Archivo de recursos\n");
+
+    return 1;
+  }
+
+
   cantiloc=atoi(*(args+1));
   cantirec=atoi(*(args+2));
   char * archlocs=*(args+3);
@@ -61,9 +77,7 @@ int main(int cargs, char **args){
       if ((p = fork()) == 0) {
 
         printf("Hijo: %d %d\n",pos,getpid());
-
         calculoP(pos);
-
         exit(0);
       }
       else {
