@@ -149,7 +149,7 @@ void cargaArchivoRecs(char * archrecs){
 * Función que convierte las claves de Estado, Municipio y Localidad a la clave Conapo
 */
 int eml2conapo(int e, int m, int l){
-  return (e*1000+m)*1000+l;
+  return (e*1000+m)*10000+l;
 }
 
 /**
