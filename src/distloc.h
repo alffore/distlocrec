@@ -12,6 +12,8 @@
 #ifndef __DISTLOC_H__
 #define __DISTLOC_H__
 
+#define CANT_TIPOS_OC 24
+
 //Definicion de la estructura de Localidad
 struct Localidad{
   int est;
@@ -30,10 +32,10 @@ struct Localidad{
   int pob;
 
   //distancias mínimas a recursos
-  double dist[23];
+  double dist[CANT_TIPOS_OC];
 
   //claves conapo a las localidades de los recursos
-  int c[23];
+  int c[CANT_TIPOS_OC];
 };
 
 typedef struct Localidad sLocalidad;

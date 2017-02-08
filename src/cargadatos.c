@@ -3,6 +3,7 @@
 extern PLocalidad ploc;
 extern PRecurso prec;
 extern PDiccionario pdic;
+extern const int cantidadTiposOC;
 
 extern void cargaArchivoLocs(char *);
 extern void cargaArchivoRecs(char *);
@@ -64,7 +65,7 @@ void cargaArchivoLocs(char * archlocs){
 
     p->pob=pob;
 
-    for(j=0;j<23;j++){
+    for(j=0;j<cantidadTiposOC;j++){
       p->dist[j]=M_PI;
     }
 

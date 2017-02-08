@@ -12,6 +12,7 @@ extern void calculoP(int);
 
 const double RT=6371008.8;
 const int NumHilos=8;
+const int cantidadTiposOC=CANT_TIPOS_OC;
 
 PLocalidad ploc;
 PRecurso prec;
@@ -20,7 +21,7 @@ PDiccionario pdic;
 int cantiloc;
 int cantirec;
 
-extern int indexIP[23];
+//extern int indexIP[cantidadTiposOC+1];
 
 
 /**
@@ -54,9 +55,9 @@ int main(int cargs, char **args){
   char * archlocs=*(args+3);
   char * archrecs=*(args+4);
 
-  pdic = (PDiccionario)malloc(sizeof(sDiccionario)*23);
+  pdic = (PDiccionario)malloc(sizeof(sDiccionario)*cantidadTiposOC);
 
-  for(ii=0;ii<23;ii++){
+  for(ii=0;ii<cantidadTiposOC;ii++){
     (pdic+ii)->nombre[0]='\0';
   }
 

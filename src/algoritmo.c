@@ -40,7 +40,7 @@ void calculoP(int pos){
     }
   }
 }
-arrays_gm
+
 /**
 *
 */
