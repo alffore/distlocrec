@@ -30,7 +30,14 @@ void calculoP(int pos){
 
     for(i=0;i<cantirec;i++){
 
+
+
+
       daux=distLocRec(ploc+j,prec+i);
+
+      if((ploc+j)->cconapo==151100001){
+        printf("%d => %d :: %lf\n",(ploc+j)->cconapo,(prec+i)->cconapo,daux);
+      }
 
       if((ploc+j)->dist[(prec+i)->tipo]>daux){
         (ploc+j)->dist[(prec+i)->tipo]=daux;
@@ -47,7 +54,10 @@ void calculoP(int pos){
 double distLocRec(PLocalidad p, PRecurso r){
   double d=(p->x*r->x);
   d+=(p->y*r->y);
-  d+=(p->z * r->z);
+  d+=(p->z*r->z);
+
+  d=(d<-1.0)?-1.0:d;
+  d=(d>1.0)?1.0:d;
 
   return acos(d);
 

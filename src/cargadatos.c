@@ -164,7 +164,16 @@ double deg2rad(double x){
 * Función convierte coordenadas geográficas a coordenadas cartesianas espaciales
 */
 void cesfe2carte(double lat, double lng, double *res){
+  double r2=0;
+
   *(res)=sin(lng)*cos(lat);
   *(res+1)=cos(lng)*cos(lat);
   *(res+2)=sin(lat);
+
+  r2=pow(*(res),2)+pow(*(res+1),2)+pow(*(res+2),2);
+  r2=sqrt(r2);
+
+  *(res)/=r2;
+  *(res+1)/=r2;
+  *(res+2)/=r2;
 }
