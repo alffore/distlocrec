@@ -35,9 +35,9 @@ void calculoP(int pos){
 
       daux=distLocRec(ploc+j,prec+i);
 
-      if((ploc+j)->cconapo==151100001){
+      /*if((ploc+j)->cconapo==151100001){
         printf("%d => %d :: %lf\n",(ploc+j)->cconapo,(prec+i)->cconapo,daux);
-      }
+      }*/
 
       if((ploc+j)->dist[(prec+i)->tipo]>daux){
         (ploc+j)->dist[(prec+i)->tipo]=daux;

@@ -94,10 +94,12 @@ int main(int cargs, char **args){
             printf("hijo termino: %d %d\n",ii, childPids[ii]);
 
             childPids[ii] = 0;
+
           }
           else {
 
             stillWaiting = 1;
+
           }
         }
         /* Damos una rebanada de tiempo Unix */
