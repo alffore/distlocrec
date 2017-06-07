@@ -12,9 +12,9 @@
 #ifndef __DISTLOC_H__
 #define __DISTLOC_H__
 
-#define CANT_TIPOS_OC 24
+#define CANT_TIPOS_OC 25
 
-//Definicion de la estructura de Localidad
+//Definición de la estructura de Localidad
 struct Localidad{
   int est;
   int mun;
